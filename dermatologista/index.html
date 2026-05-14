@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dra. Bárbara Pimenta | Dermatologista em Florianópolis</title>
+  <style>
+    :root {
+      --bg: #faf5ef;
+      --surface: #ffffff;
+      --text: #2f281f;
+      --muted: #6b5d47;
+      --gold: #b88945;
+      --card: #fff7ed;
+      --button-start: #ad7d3f;
+      --button-end: #f2c26a;
+      --shadow: 0 18px 40px rgba(101, 74, 28, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Poppins", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+      background: var(--surface);
+      border-radius: 32px;
+      box-shadow: 0 28px 80px rgba(87, 57, 16, 0.08);
+    }
+    .hero {
+      display: grid;
+      gap: 32px;
+      align-items: center;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 420px);
+    }
+    .hero-copy { padding: 16px; }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 4vw, 3.9rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+    .hero-name {
+      display: block;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .hero-subtitle {
+      display: block;
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 1.2rem;
+      margin-top: 16px;
+      letter-spacing: -0.01em;
+    }
+    .hero-info {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+    .hero-info span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    p.lead {
+      margin: 24px 0 32px;
+      max-width: 590px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 28px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--button-start), var(--button-end));
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: var(--shadow), 0 0 0 4px rgba(184, 137, 69, 0.15);
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .btn-primary:hover {
+      transform: scale(1.05);
+      filter: brightness(0.9);
+    }
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      box-shadow: 0 24px 60px rgba(101, 74, 28, 0.16);
+      min-height: 380px;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .features {
+      margin-top: 72px;
+      background: var(--surface);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 14px 40px rgba(101, 74, 28, 0.08);
+      border: 1px solid rgba(184, 137, 69, 0.18);
+    }
+    .features h2 {
+      margin-top: 0;
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      color: var(--text);
+    }
+    .grid {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-top: 28px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(184, 137, 69, 0.16);
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 16px 30px rgba(101, 74, 28, 0.08);
+    }
+    .card h3 {
+      margin: 0 0 14px;
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .page-footer {
+      margin-top: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .page-footer .social-links {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .page-footer .address {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-align: center;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 18px;
+      color: var(--text);
+      background: rgba(250, 245, 239, 0.95);
+      border: 1px solid rgba(184, 137, 69, 0.18);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .social-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(101, 74, 28, 0.08);
+    }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-image { min-height: 320px; }
+    }
+    @media (max-width: 500px) {
+      .page { padding: 20px 16px 40px; }
+      .btn-primary { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Dermatologista em Florianópolis</span>
+        <h1>
+          <span class="hero-name">Dra. Bárbara Pimenta</span>
+          <span class="hero-subtitle">Dermatologia com precisão, elegância e cuidado humanizado.</span>
+        </h1>
+        <p class="lead">Consultas, tratamentos e tecnologias avançadas para saúde da sua pele, com foco em rejuvenescimento, flacidez e resultados naturais.</p>
+        <a class="btn-primary" href="https://wa.me/554896739186?text=Queria%20agendar%20a%20minha%20consulta%20com%20a%20Dra.%20B%C3%A1rbara" target="_blank" rel="noreferrer noopener">
+          Agende seu horário agora
+        </a>
+        <div class="hero-info">
+          <span>CRM: 27312</span>
+          <span>RQE: 17648</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="../dra-barbara-pimenta/DM_20260511180812_001.jpg" alt="Dra. Bárbara Pimenta sorrindo em consultório" loading="eager">
+      </div>
+    </section>
+
+    <section class="features">
+      <h2>Tratamentos e diferenciais que fazem a diferença</h2>
+      <div class="grid">
+        <article class="card">
+          <div>
+            <h3>Tratamentos individualizados</h3>
+            <p>Protocolos exclusivos para cada tipo de pele, garantindo resultados precisos e duradouros.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div>
+            <h3>Tecnologias modernas</h3>
+            <p>Equipamentos avançados que aceleram recuperação, aumentam segurança e amplificam os resultados.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div>
+            <h3>Rejuvenescimento facial &amp; corporal</h3>
+            <p>Tratamentos integrados para renovar pele, volume e contorno com naturalidade e harmonia.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div>
+            <h3>Flacidez da pele</h3>
+            <p>Protocolos eficazes para devolver firmeza a rosto, pescoço e corpo com resultados visíveis.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div>
+            <h3>Prevenção de doenças</h3>
+            <p>Exames e acompanhamento dermatológico para detectar sinais precoces e proteger sua pele.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div>
+            <h3>Atendimento premium</h3>
+            <p>Experiência de consultório com foco em cuidado, confiança e um atendimento pensado para você.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="page-footer">
+      <div class="social-links">
+        <a class="social-link" href="https://www.instagram.com/drapimentadermato/" target="_blank" rel="noreferrer noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 2H17C20.3137 2 23 4.68629 23 8V16C23 19.3137 20.3137 22 17 22H7C3.68629 22 1 19.3137 1 16V8C1 4.68629 3.68629 2 7 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16.5 11.9998C16.5 14.4863 14.9863 15.9998 12.5 15.9998C10.0137 15.9998 8.5 14.4863 8.5 11.9998C8.5 9.51346 10.0137 7.99982 12.5 7.99982C14.9863 7.99982 16.5 9.51346 16.5 11.9998Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18.5 6.5H18.51" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Instagram
+        </a>
+        <a class="social-link" href="https://www.youtube.com/@drapimentadermato" target="_blank" rel="noreferrer noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.8 7.2C21.6 6.4 21.1 5.8 20.4 5.5C18.9 4.8 12 4.8 12 4.8C12 4.8 5.1 4.8 3.6 5.5C2.9 5.8 2.4 6.4 2.2 7.2C1.8 8.8 1.8 12 1.8 12C1.8 12 1.8 15.2 2.2 16.8C2.4 17.6 2.9 18.2 3.6 18.5C5.1 19.2 12 19.2 12 19.2C12 19.2 18.9 19.2 20.4 18.5C21.1 18.2 21.6 17.6 21.8 16.8C22.2 15.2 22.2 12 22.2 12C22.2 12 22.2 8.8 21.8 7.2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.8 15.6V8.4L16.8 12L9.8 15.6Z" fill="currentColor"/>
+          </svg>
+          YouTube
+        </a>
+      </div>
+      <div class="address">
+        Estação Milano — Rua Ângelo Laporta 53, Bloco 1, Sala 1202<br>
+        Florianópolis - SC
+      </div>
+    </div>
+  </main>
+</body>
+</html>
