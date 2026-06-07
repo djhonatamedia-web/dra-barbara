@@ -1,304 +1,505 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ultraformer MPT | Dra. Bárbara Pimenta — Florianópolis</title>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11309171134"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-11309171134');
-  </script>
-  <style>
-    :root {
-      --bg: #faf5ef;
-      --surface: #ffffff;
-      --text: #2f281f;
-      --muted: #6b5d47;
-      --gold: #b88945;
-      --card: #fff7ed;
-      --button-start: #ad7d3f;
-      --button-end: #f2c26a;
-      --shadow: 0 18px 40px rgba(101, 74, 28, 0.12);
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Poppins", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    .page {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 32px 20px 60px;
-      background: var(--surface);
-      border-radius: 32px;
-      box-shadow: 0 28px 80px rgba(87, 57, 16, 0.08);
-    }
-    .hero {
-      display: grid;
-      gap: 32px;
-      align-items: center;
-      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 420px);
-    }
-    .hero-copy { padding: 16px; }
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 18px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-    h1 {
-      margin: 0;
-      font-size: clamp(2.2rem, 3vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
-    .hero-name {
-      display: block;
-      font-weight: 800;
-      color: var(--text);
-    }
-    .hero-subtitle {
-      display: block;
-      font-weight: 400;
-      color: var(--muted);
-      font-size: 1.2rem;
-      margin-top: 16px;
-      letter-spacing: -0.01em;
-    }
-    .hero-info {
-      display: flex;
-      gap: 12px;
-      margin-top: 20px;
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-    }
-    .hero-info span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    p.lead {
-      margin: 24px 0 32px;
-      max-width: 590px;
-      color: var(--muted);
-      font-size: 1.04rem;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 28px;
-      border-radius: 8px;
-      color: #fff;
-      background: linear-gradient(135deg, var(--button-start), var(--button-end));
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: var(--shadow), 0 0 0 4px rgba(184, 137, 69, 0.15);
-      transition: transform 0.2s ease, filter 0.2s ease;
-    }
-    .btn-primary:hover {
-      transform: scale(1.05);
-      filter: brightness(0.9);
-    }
-    .hero-image {
-      position: relative;
-      overflow: hidden;
-      border-radius: 32px;
-      box-shadow: 0 24px 60px rgba(101, 74, 28, 0.16);
-      min-height: 380px;
-    }
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
-    .features {
-      margin-top: 72px;
-      background: var(--surface);
-      border-radius: 28px;
-      padding: 32px;
-      box-shadow: 0 14px 40px rgba(101, 74, 28, 0.08);
-      border: 1px solid rgba(184, 137, 69, 0.18);
-    }
-    .features h2 {
-      margin-top: 0;
-      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
-      color: var(--text);
-    }
-    .grid {
-      display: grid;
-      gap: 22px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      margin-top: 28px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(184, 137, 69, 0.16);
-      border-radius: 22px;
-      padding: 24px;
-      min-height: 170px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 16px 30px rgba(101, 74, 28, 0.08);
-    }
-    .card h3 {
-      margin: 0 0 14px;
-      font-size: 1.2rem;
-      color: var(--text);
-    }
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-    .page-footer {
-      margin-top: 56px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-    .page-footer .social-links {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .page-footer .address {
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 500;
-      text-align: center;
-    }
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 18px;
-      color: var(--text);
-      background: rgba(250, 245, 239, 0.95);
-      border: 1px solid rgba(184, 137, 69, 0.18);
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 600;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .social-link:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 25px rgba(101, 74, 28, 0.08);
-    }
-    @media (max-width: 860px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-image { min-height: 320px; }
-    }
-    @media (max-width: 500px) {
-      .page { padding: 20px 16px 40px; }
-      .btn-primary { width: 100%; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultraformer MPT em Florianópolis | Dra. Bárbara Pimenta – Dermatologista</title>
+<meta name="description" content="Reduza a papada e a flacidez sem cirurgia com Ultraformer MPT. Dra. Bárbara Pimenta, Dermatologista CRM/SC 27312. Agende sua avaliação em Florianópolis.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11309171134"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-11309171134');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0A;--bg2:#111;--bg3:#1A1A1A;--bg4:#242424;
+  --gold:#C9A84C;--gold2:#E2C47A;
+  --white:#F5F1EB;--dim:#D8D2C8;--muted:#7A7469;
+  --wpp:#25D366;--wpp2:#128C7E;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+  --b1:rgba(201,168,76,.15);--b2:rgba(201,168,76,.32);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden;}
+
+/* MOBILE STICKY */
+.m-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--wpp);padding:14px 20px;box-shadow:0 -2px 24px rgba(0,0,0,.5);}
+.m-cta a{display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;text-decoration:none;font-size:15px;font-weight:500;}
+@media(max-width:768px){.m-cta{display:block;}body{padding-bottom:68px;}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--b1);padding:16px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-brand{font-family:var(--serif);font-size:17px;font-weight:300;letter-spacing:.06em;}
+.nav-brand em{color:var(--gold);font-style:italic;}
+.nav-sub{font-size:11px;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;}
+.nav-btn{display:flex;align-items:center;gap:8px;background:var(--wpp);color:#fff;font-size:13px;font-weight:500;text-decoration:none;padding:10px 20px;border-radius:100px;white-space:nowrap;transition:background .2s,transform .15s;}
+.nav-btn:hover{background:var(--wpp2);transform:translateY(-1px);}
+@media(max-width:640px){nav{padding:14px 20px;}.nav-sub{display:none;}}
+
+/* LAYOUT */
+.wrap{max-width:1200px;margin:0 auto;padding:0 48px;}
+.sec{padding:88px 0;}
+@media(max-width:600px){.wrap{padding:0 20px;}.sec{padding:60px 0;}}
+
+/* SECTION LABELS */
+.lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.sec-h{font-family:var(--serif);font-size:clamp(28px,3vw,46px);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:16px;}
+.sec-h em{font-style:italic;color:var(--gold2);}
+.sec-p{font-size:15px;font-weight:300;color:var(--dim);line-height:1.75;max-width:520px;}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:56px;max-width:1200px;margin:0 auto;padding:80px 48px;min-height:90vh;position:relative;}
+.hero::after{content:'';position:absolute;bottom:0;left:48px;right:48px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.3;}
+.hero-lbl{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+.hero-lbl::before{content:'';width:28px;height:1px;background:var(--gold);opacity:.6;}
+h1{font-family:var(--serif);font-size:clamp(38px,4vw,62px);font-weight:300;line-height:1.05;color:var(--white);margin-bottom:20px;}
+h1 em{font-style:italic;color:var(--gold2);}
+.hero-p{font-size:16px;font-weight:300;color:var(--dim);line-height:1.7;max-width:420px;margin-bottom:36px;}
+.btn-wpp{display:inline-flex;align-items:center;gap:12px;background:var(--wpp);color:#fff;font-size:16px;font-weight:500;text-decoration:none;padding:18px 36px;border-radius:4px;box-shadow:0 4px 24px rgba(37,211,102,.2);transition:background .2s,transform .15s,box-shadow .2s;}
+.btn-wpp:hover{background:var(--wpp2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,211,102,.3);}
+.hero-micro{display:flex;gap:18px;margin-top:14px;font-size:12px;color:var(--muted);flex-wrap:wrap;}
+.hero-micro span{display:flex;align-items:center;gap:5px;}
+.chk{color:var(--gold);}
+.hero-proof{display:flex;align-items:center;gap:10px;margin-top:28px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);}
+.dot{width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.5;}
+
+.photo-wrap{position:relative;}
+.photo-frame{position:absolute;top:-14px;right:-14px;bottom:14px;left:14px;border:1px solid var(--b2);border-radius:2px;pointer-events:none;}
+.photo-frame::before{content:'';position:absolute;top:-1px;left:-1px;width:44px;height:44px;border-top:2px solid var(--gold);border-left:2px solid var(--gold);}
+.photo-frame::after{content:'';position:absolute;bottom:-1px;right:-1px;width:44px;height:44px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold);}
+.hero-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:2px;display:block;filter:grayscale(12%) contrast(1.05);}
+
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:56px 24px;min-height:auto;gap:0;}.photo-wrap{display:none;}}
+@media(max-width:600px){.hero{padding:40px 20px;}}
+
+/* BENEFITS STRIP */
+.strip{background:var(--bg2);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);padding:24px 48px;}
+.strip-inner{max-width:1200px;margin:0 auto;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.pill{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:400;color:var(--dim);padding:9px 16px;border:1px solid var(--b1);border-radius:100px;background:rgba(201,168,76,.04);white-space:nowrap;}
+.pill-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.7;flex-shrink:0;}
+@media(max-width:600px){.strip{padding:16px 20px;}}
+
+/* PROBLEM */
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.prob-list{display:flex;flex-direction:column;margin-top:32px;}
+.prob-item{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid var(--b1);}
+.prob-item:last-child{border-bottom:none;}
+.p-n{font-family:var(--serif);font-size:36px;font-weight:300;color:var(--gold);opacity:.3;width:30px;flex-shrink:0;line-height:1;margin-top:2px;}
+.p-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:4px;}
+.p-desc{font-size:13.5px;font-weight:300;color:var(--muted);line-height:1.6;}
+.prob-visual{background:var(--bg3);border:1px solid var(--b1);border-radius:4px;padding:36px;display:flex;flex-direction:column;gap:28px;}
+.stat-row{display:flex;flex-direction:column;gap:7px;}
+.stat-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);}
+.bar-wrap{height:3px;background:var(--bg4);border-radius:2px;overflow:hidden;}
+.bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;}
+.stat-note{font-size:12px;color:var(--muted);}
+@media(max-width:860px){.prob-grid{grid-template-columns:1fr;gap:40px;}.prob-visual{display:none;}}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--b1);border-radius:4px;overflow:hidden;margin-top:48px;}
+.step{padding:36px 28px;border-right:1px solid var(--b1);transition:background .2s;}
+.step:last-child{border-right:none;}
+.step:hover{background:rgba(201,168,76,.03);}
+.step-n{font-family:var(--serif);font-size:52px;font-weight:300;color:var(--gold);opacity:.22;line-height:1;margin-bottom:18px;}
+.step-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:8px;}
+.step-desc{font-size:13.5px;font-weight:300;color:var(--muted);line-height:1.65;}
+@media(max-width:768px){.steps{grid-template-columns:1fr;}.step{border-right:none;border-bottom:1px solid var(--b1);}.step:last-child{border-bottom:none;}}
+
+/* RESULTS GRID */
+.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;}
+.r-card{background:var(--bg3);border:1px solid var(--b1);border-radius:4px;padding:26px 22px;transition:border-color .25s;}
+.r-card:hover{border-color:var(--b2);}
+.r-area{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.r-title{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--white);margin-bottom:10px;line-height:1.2;}
+.r-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.65;}
+@media(max-width:860px){.r-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.r-grid{grid-template-columns:1fr;}}
+
+/* TESTIMONIALS */
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;}
+.t-card{background:var(--bg3);border:1px solid var(--b1);border-radius:4px;padding:26px 22px;display:flex;flex-direction:column;transition:border-color .25s;}
+.t-card:hover{border-color:var(--b2);}
+.stars{color:#FBBC04;font-size:14px;letter-spacing:2px;margin-bottom:16px;}
+.t-text{font-family:var(--serif);font-size:17px;font-style:italic;font-weight:300;color:var(--dim);line-height:1.65;flex:1;margin-bottom:20px;}
+.t-text::before{content:'\201C';color:var(--gold);font-size:28px;line-height:0;vertical-align:-10px;margin-right:3px;}
+.t-name{font-size:13px;font-weight:500;color:var(--white);}
+.t-tag{font-size:11px;color:var(--muted);margin-top:2px;}
+.g-link{text-align:center;margin-top:28px;}
+.g-link a{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--b2);border-radius:4px;padding:12px 20px;color:var(--gold2);text-decoration:none;font-size:13px;transition:border-color .2s;}
+.g-link a:hover{border-color:rgba(201,168,76,.6);}
+@media(max-width:860px){.t-grid{grid-template-columns:1fr;}}
+
+/* AUTHORITY */
+.auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.auth-photo{position:relative;}
+.auth-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:2px;display:block;filter:grayscale(10%) contrast(1.05);}
+.auth-photo::after{content:'';position:absolute;bottom:-14px;right:-14px;width:55%;height:55%;border:1px solid var(--b1);z-index:-1;}
+.cred-list{display:flex;flex-direction:column;margin:28px 0 32px;}
+.cred-row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--b1);}
+.cred-row:last-child{border-bottom:none;}
+.cred-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:8px;}
+.cred-txt{font-size:14px;color:var(--dim);font-weight:300;line-height:1.5;}
+.cred-txt strong{color:var(--white);font-weight:500;}
+@media(max-width:860px){.auth-grid{grid-template-columns:1fr;gap:40px;}.auth-photo{display:none;}}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;max-width:760px;}
+.faq-item{border-bottom:1px solid var(--b1);}
+.faq-btn{width:100%;text-align:left;background:none;border:none;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--sans);font-size:15px;font-weight:400;color:var(--white);transition:color .2s;}
+.faq-btn:hover{color:var(--gold2);}
+.faq-icon{width:26px;height:26px;border-radius:50%;flex-shrink:0;border:1px solid var(--b2);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;transition:transform .3s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-ans{display:none;padding:0 0 22px;font-size:14px;font-weight:300;color:var(--muted);line-height:1.8;}
+.faq-item.open .faq-ans{display:block;}
+
+/* FINAL CTA */
+.cta-wrap{max-width:760px;margin:0 auto;}
+.cta-card{background:var(--bg3);border:1px solid var(--b2);border-radius:4px;padding:56px 48px;text-align:center;position:relative;overflow:hidden;}
+.cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.cta-h{font-family:var(--serif);font-size:clamp(28px,4vw,46px);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:12px;}
+.cta-h em{font-style:italic;color:var(--gold2);}
+.cta-p{font-size:15px;font-weight:300;color:var(--muted);line-height:1.7;max-width:440px;margin:0 auto 32px;}
+.cta-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:28px;}
+.cta-tag{font-size:12px;border:1px solid var(--b1);border-radius:2px;padding:6px 14px;color:var(--dim);font-weight:300;}
+.btn-cta{display:inline-flex;align-items:center;gap:12px;background:var(--wpp);color:#fff;font-size:17px;font-weight:500;text-decoration:none;padding:20px 48px;border-radius:4px;box-shadow:0 4px 32px rgba(37,211,102,.2);transition:background .2s,transform .15s,box-shadow .2s;}
+.btn-cta:hover{background:var(--wpp2);transform:translateY(-2px);box-shadow:0 10px 48px rgba(37,211,102,.3);}
+.cta-sub{display:flex;justify-content:center;gap:20px;margin-top:16px;flex-wrap:wrap;font-size:12px;color:var(--muted);}
+.cta-sub span{display:flex;align-items:center;gap:5px;}
+@media(max-width:600px){.cta-card{padding:40px 20px;}}
+
+/* ADDRESS / FOOTER */
+.address{background:var(--bg4);border-top:1px solid var(--b1);padding:28px 48px;}
+.addr-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.addr-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:2px;}
+.addr-val{font-size:14px;color:var(--dim);font-weight:300;}
+.maps-link{font-size:13px;color:var(--gold2);text-decoration:none;white-space:nowrap;}
+.maps-link:hover{text-decoration:underline;}
+footer{background:var(--bg);border-top:1px solid var(--b1);padding:20px 48px;text-align:center;font-size:11px;color:var(--muted);letter-spacing:.04em;}
+footer a{color:var(--muted);text-decoration:none;}
+footer a:hover{color:var(--gold);}
+@media(max-width:600px){.address{padding:20px;}footer{padding:16px 20px;}}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease;}
+.r.v{opacity:1;transform:translateY(0);}
+</style>
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">Lifting sem cirurgia em Florianópolis</span>
-        <h1>
-          <span class="hero-name">Ultraformer MPT</span>
-          <span class="hero-subtitle">Firmeza e lifting profundo sem bisturi, anestesia ou recuperação.</span>
-        </h1>
-        <p class="lead">A tecnologia HIFU de última geração que atinge camadas profundas da pele, estimula colágeno e reposiciona tecidos — com resultado visível já nas primeiras semanas e evolução por até 6 meses.</p>
-        <a class="btn-primary" href="https://wa.me/554896739186?text=Queria%20saber%20mais%20sobre%20o%20Ultraformer%20MPT%20com%20a%20Dra.%20B%C3%A1rbara" target="_blank" rel="noreferrer noopener" onclick="gtag('event','conversion',{'send_to':'AW-11309171134/JgAZCM-v9dYYEL6D0ZAq'})">
-          Quero agendar minha avaliação
-        </a>
-        <div class="hero-info">
-          <span>Dra. Bárbara Pimenta</span>
-          <span>CRM: 27312</span>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="../dra-barbara-pimenta/DM_20260511180812_001.jpg" alt="Dra. Bárbara Pimenta — especialista em Ultraformer MPT em Florianópolis" loading="eager">
-      </div>
-    </section>
 
-    <section class="features">
-      <h2>Por que escolher o Ultraformer MPT?</h2>
-      <div class="grid">
-        <article class="card">
-          <div>
-            <h3>Sem cirurgia, sem cortes</h3>
-            <p>O Ultraformer MPT age por ultrassom focado de alta intensidade (HIFU) — sem agulhas, sem incisões e sem anestesia geral.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div>
-            <h3>Resultados progressivos</h3>
-            <p>A estimulação de colágeno começa imediatamente. Os resultados aparecem nas primeiras semanas e continuam evoluindo por até 6 meses.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div>
-            <h3>Face, pescoço e corpo</h3>
-            <p>Trata papada, flacidez facial, pescoço, colo e regiões do corpo como abdômen, braços e coxas em uma única tecnologia.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div>
-            <h3>Sem tempo de recuperação</h3>
-            <p>A sessão dura de 30 a 60 minutos e você volta às atividades normais no mesmo dia.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div>
-            <h3>Protocolo personalizado</h3>
-            <p>A Dra. Bárbara avalia cada paciente individualmente e define a combinação de transductores ideal para o seu caso.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div>
-            <h3>Tecnologia MPT certificada</h3>
-            <p>Multi Pulse Technology com energia micro e macrofocada — mais precisa, mais confortável e com maior cobertura de área por sessão.</p>
-          </div>
-        </article>
-      </div>
-    </section>
+<div class="m-cta">
+  <a href="https://wa.me/554896739186?text=Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20de%20Ultraformer%20MPT%20com%20a%20Dra.%20B%C3%A1rbara" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-11309171134/JgAZCM-v9dYYEL6D0ZAq'})">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar com a Dra. Bárbara
+  </a>
+</div>
 
-    <div class="page-footer">
-      <div class="social-links">
-        <a class="social-link" href="https://www.instagram.com/drapimentadermato/" target="_blank" rel="noreferrer noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 2H17C20.3137 2 23 4.68629 23 8V16C23 19.3137 20.3137 22 17 22H7C3.68629 22 1 19.3137 1 16V8C1 4.68629 3.68629 2 7 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M16.5 11.9998C16.5 14.4863 14.9863 15.9998 12.5 15.9998C10.0137 15.9998 8.5 14.4863 8.5 11.9998C8.5 9.51346 10.0137 7.99982 12.5 7.99982C14.9863 7.99982 16.5 9.51346 16.5 11.9998Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M18.5 6.5H18.51" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          Instagram
-        </a>
-        <a class="social-link" href="https://www.youtube.com/@drapimentadermato" target="_blank" rel="noreferrer noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21.8 7.2C21.6 6.4 21.1 5.8 20.4 5.5C18.9 4.8 12 4.8 12 4.8C12 4.8 5.1 4.8 3.6 5.5C2.9 5.8 2.4 6.4 2.2 7.2C1.8 8.8 1.8 12 1.8 12C1.8 12 1.8 15.2 2.2 16.8C2.4 17.6 2.9 18.2 3.6 18.5C5.1 19.2 12 19.2 12 19.2C12 19.2 18.9 19.2 20.4 18.5C21.1 18.2 21.6 17.6 21.8 16.8C22.2 15.2 22.2 12 22.2 12C22.2 12 22.2 8.8 21.8 7.2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9.8 15.6V8.4L16.8 12L9.8 15.6Z" fill="currentColor"/>
-          </svg>
-          YouTube
-        </a>
+<nav>
+  <div>
+    <div class="nav-brand">Dra. <em>Bárbara Pimenta</em></div>
+    <div class="nav-sub">Dermatologista · CRM/SC 27312 · RQE 17648</div>
+  </div>
+  <a class="nav-btn" href="https://wa.me/554896739186?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20o%20Ultraformer%20MPT" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-11309171134/JgAZCM-v9dYYEL6D0ZAq'})">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar com a Dra. Bárbara
+  </a>
+</nav>
+
+<!-- 1. HERO -->
+<section>
+  <div class="hero">
+    <div class="r">
+      <div class="hero-lbl">Ultraformer MPT · Florianópolis</div>
+      <h1>Papada, Flacidez<br>e Contorno —<br><em>Sem Cirurgia</em></h1>
+      <p class="hero-p">A Dra. Bárbara Pimenta trata flacidez facial e corporal com Ultraformer MPT — tecnologia HIFU aprovada pela Anvisa que age nas camadas profundas da pele, sem cortes, sem anestesia e sem afastamento.</p>
+      <a class="btn-wpp" href="https://wa.me/554896739186?text=Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20de%20Ultraformer%20MPT%20com%20a%20Dra.%20B%C3%A1rbara" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-11309171134/JgAZCM-v9dYYEL6D0ZAq'})">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar avaliação gratuita
+      </a>
+      <div class="hero-micro">
+        <span><span class="chk">✓</span> Resposta em até 1h</span>
+        <span><span class="chk">✓</span> Seg–Sex · 8h às 18h</span>
+        <span><span class="chk">✓</span> Sem compromisso</span>
       </div>
-      <div class="address">
-        Estação Milano — Rua Ângelo Laporta 53, Bloco 1, Sala 1202<br>
-        Florianópolis - SC
+      <div class="hero-proof">
+        <span>CRM/SC 27312</span><span class="dot"></span>
+        <span>UNESP Botucatu</span><span class="dot"></span>
+        <span>Título SBD</span><span class="dot"></span>
+        <span>Anvisa</span>
       </div>
     </div>
-  </main>
+    <div class="photo-wrap r">
+      <div class="photo-frame"></div>
+      <img class="hero-img" src="../dra-barbara-pimenta/DM_20260511180812_001.jpg" alt="Dra. Bárbara Pimenta – Dermatologista Florianópolis" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- 2. BENEFITS STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="pill"><span class="pill-dot"></span>Sem cirurgia</div>
+    <div class="pill"><span class="pill-dot"></span>Sem cortes</div>
+    <div class="pill"><span class="pill-dot"></span>Sem afastamento</div>
+    <div class="pill"><span class="pill-dot"></span>Papada e mandíbula</div>
+    <div class="pill"><span class="pill-dot"></span>Face e corpo</div>
+    <div class="pill"><span class="pill-dot"></span>Realizado por dermatologista</div>
+  </div>
+</div>
+
+<!-- 3. O PROBLEMA -->
+<section class="sec" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="prob-grid">
+      <div>
+        <div class="lbl r">O que acontece com a pele</div>
+        <h2 class="sec-h r">A partir dos 30 anos,<br>a pele <em>começa a ceder</em></h2>
+        <p class="sec-p r">Com o envelhecimento natural, o organismo produz menos colágeno e elastina. O resultado aparece no rosto e no corpo: papada que se forma, pele que perde firmeza, contorno que deixa de ser definido.</p>
+        <div class="prob-list r">
+          <div class="prob-item">
+            <div class="p-n">01</div>
+            <div><div class="p-title">Papada e perda do contorno</div><div class="p-desc">O acúmulo de gordura e flacidez submandibular apagam a definição da mandíbula e do pescoço — mesmo em quem está no peso ideal.</div></div>
+          </div>
+          <div class="prob-item">
+            <div class="p-n">02</div>
+            <div><div class="p-title">Flacidez facial</div><div class="p-desc">A pele das bochechas perde sustentação. A região do jowl cai e marca o rosto com um aspecto de envelhecimento progressivo.</div></div>
+          </div>
+          <div class="prob-item">
+            <div class="p-n">03</div>
+            <div><div class="p-title">Flacidez corporal</div><div class="p-desc">Abdômen, braços e coxas perdem tônus com a queda do colágeno — acentuada após gravidez, perda de peso ou simplesmente pelo tempo.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="prob-visual r">
+        <div class="stat-row">
+          <div class="stat-lbl">Queda de colágeno após os 25 anos</div>
+          <div class="bar-wrap"><div class="bar" style="width:72%"></div></div>
+          <div class="stat-note">Redução gradual de ~1% ao ano — acumulada ao longo do tempo</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-lbl">Perda de elastina com a idade</div>
+          <div class="bar-wrap"><div class="bar" style="width:85%"></div></div>
+          <div class="stat-note">Mais acentuada com exposição solar cumulativa</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-lbl">Áreas mais afetadas pela flacidez</div>
+          <div class="bar-wrap"><div class="bar" style="width:60%"></div></div>
+          <div class="stat-note">Mandíbula, pescoço e região periorbital</div>
+        </div>
+        <p style="font-size:11px;color:var(--muted);margin-top:4px;font-style:italic;line-height:1.5">Dados de referência dermatológica — variações individuais conforme biotipo e hábitos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. COMO FUNCIONA -->
+<section class="sec" style="background:var(--bg);">
+  <div class="wrap">
+    <div class="lbl r">Como funciona</div>
+    <h2 class="sec-h r">O procedimento em<br><em>três etapas</em></h2>
+    <p class="sec-p r">Sem internação, sem cortes. Do agendamento ao acompanhamento, você sabe o que esperar em cada momento.</p>
+    <div class="steps r">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-title">Avaliação médica individualizada</div>
+        <div class="step-desc">A Dra. Bárbara avalia seu histórico, grau de flacidez e áreas de interesse. Só então define se o Ultraformer MPT é indicado e qual protocolo faz sentido para o seu caso.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-title">Sessão de 30 a 60 minutos</div>
+        <div class="step-desc">O transdutor emite ultrassom focado de alta intensidade nas camadas profundas da pele. Sem danos à superfície. A maioria das pacientes volta às atividades normais no mesmo dia.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-title">Evolução nas semanas seguintes</div>
+        <div class="step-desc">A estimulação de colágeno começa durante a sessão e continua nas semanas posteriores. A resposta é progressiva e individual — variações existem conforme biotipo e protocolo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. RESULTADOS POR ÁREA -->
+<section class="sec" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="lbl r">Indicações</div>
+    <h2 class="sec-h r">Áreas tratadas com<br><em>Ultraformer MPT</em></h2>
+    <p class="sec-p r" style="margin-bottom:0">O protocolo é definido individualmente na avaliação. Cada área tem profundidade e parâmetros específicos — não existe protocolo genérico.</p>
+    <div class="r-grid">
+      <div class="r-card r">
+        <div class="r-area">Região facial</div>
+        <div class="r-title">Papada e Mandíbula</div>
+        <div class="r-desc">Indicado para flacidez submandibular e acúmulo de gordura na papada. O HIFU age no SMAS — a mesma camada abordada cirurgicamente — sem incisões.</div>
+      </div>
+      <div class="r-card r">
+        <div class="r-area">Região facial</div>
+        <div class="r-title">Flacidez facial</div>
+        <div class="r-desc">Tratamento de bochechas, contorno e jowl. Estimula colágeno e melhora progressivamente a definição do óvulo facial.</div>
+      </div>
+      <div class="r-card r">
+        <div class="r-area">Região facial</div>
+        <div class="r-title">Sobrancelha e olhos</div>
+        <div class="r-desc">Protocolo específico para ptose leve da sobrancelha e flacidez periorbital. Área sensível com parâmetros próprios.</div>
+      </div>
+      <div class="r-card r">
+        <div class="r-area">Pescoço e colo</div>
+        <div class="r-title">Pescoço e Colo</div>
+        <div class="r-desc">Flacidez cervical e do décolleté. A região responde bem ao estímulo de colágeno com protocolo adaptado à sua delicadeza.</div>
+      </div>
+      <div class="r-card r">
+        <div class="r-area">Região corporal</div>
+        <div class="r-title">Abdômen e braços</div>
+        <div class="r-desc">Indicado para flacidez após perda de peso ou alterações associadas à idade. Transductores corporais com maior profundidade.</div>
+      </div>
+      <div class="r-card r">
+        <div class="r-area">Região corporal</div>
+        <div class="r-title">Coxas e glúteos</div>
+        <div class="r-desc">Protocolo corporal para flacidez moderada em face interna das coxas e região glútea. Indicação definida em avaliação individual.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. DEPOIMENTOS (substitui antes/depois - CFM compliant) -->
+<section class="sec" style="background:var(--bg);">
+  <div class="wrap">
+    <div class="lbl r">Avaliações</div>
+    <h2 class="sec-h r">O que dizem as<br><em>pacientes</em></h2>
+    <p class="sec-p r">Relatos de pacientes atendidas pela Dra. Bárbara — publicados sem adjetivos que insinuem promessa de resultado.</p>
+    <div class="t-grid">
+      <div class="t-card r">
+        <div class="stars">★★★★★</div>
+        <div class="t-text">Fui muito bem atendida. A Dra. Bárbara explicou detalhadamente como funciona o procedimento, tirou todas as minhas dúvidas e me deixou confortável durante toda a sessão.</div>
+        <div><div class="t-name">Ana C., 44 anos</div><div class="t-tag">Avaliação via Google</div></div>
+      </div>
+      <div class="t-card r">
+        <div class="stars">★★★★★</div>
+        <div class="t-text">Tinha muitas dúvidas sobre o procedimento e a Dra. Bárbara respondeu cada uma com paciência e clareza. Me senti segura em todo o processo — do agendamento até o acompanhamento.</div>
+        <div><div class="t-name">Renata M., 51 anos</div><div class="t-tag">Avaliação via Google</div></div>
+      </div>
+      <div class="t-card r">
+        <div class="stars">★★★★★</div>
+        <div class="t-text">Profissional extremamente atenciosa e técnica. Explicou cada etapa, apresentou o protocolo com clareza e me deu todo o suporte. Recomendo pelo cuidado e seriedade no atendimento.</div>
+        <div><div class="t-name">Camila F., 38 anos</div><div class="t-tag">Avaliação via Google</div></div>
+      </div>
+    </div>
+    <div class="g-link r">
+      <a href="https://www.google.com/search?q=Dra+B%C3%A1rbara+Pimenta+Dermatologista+Florian%C3%B3polis" target="_blank" rel="noopener">★ Ver todas as avaliações no Google →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="sec" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="lbl r">Dúvidas</div>
+    <h2 class="sec-h r" style="margin-bottom:40px">Perguntas frequentes<br><em>sobre o procedimento</em></h2>
+    <div class="faq-list r">
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Dói? Como é a sensação durante a sessão?<span class="faq-icon">+</span></button>
+        <div class="faq-ans">O Ultraformer MPT é mais confortável do que o HIFU convencional graças à tecnologia Multi Pulse. A maioria das pacientes descreve como formigamento ou calor localizado — tolerável sem anestesia. Em áreas mais sensíveis como mandíbula, pode ser aplicado anestésico tópico. A Dra. Bárbara ajusta a energia conforme seu nível de tolerância durante a sessão.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Quantas sessões são necessárias?<span class="faq-icon">+</span></button>
+        <div class="faq-ans">Varia conforme o caso — grau de flacidez, área tratada, biotipo e expectativas. A maioria dos protocolos envolve 1 sessão por ciclo, com reavaliação periódica. A Dra. Bárbara define o protocolo na avaliação, sem indicar procedimentos além do necessário para cada caso.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Quando vejo resultado?<span class="faq-icon">+</span></button>
+        <div class="faq-ans">A resposta é progressiva e individual. Alterações podem ser observadas a partir de semanas após o procedimento, com evolução continuada por meses. A resposta varia conforme biotipo, idade, grau de flacidez e outros fatores individuais.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Quanto tempo dura o resultado?<span class="faq-icon">+</span></button>
+        <div class="faq-ans">Os efeitos não são permanentes — o processo natural de envelhecimento continua. A duração varia por indivíduo. A maioria das pacientes opta por sessões de manutenção periódicas, em intervalos definidos pela Dra. Bárbara conforme a evolução de cada caso.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Preciso ficar afastada do trabalho?<span class="faq-icon">+</span></button>
+        <div class="faq-ans">Não. A maioria das pacientes retorna às atividades normais no mesmo dia. Pode haver leve vermelhidão ou sensibilidade local nas primeiras horas — transitórios. Não há curativos, afastamento ou repouso obrigatório.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Como funciona a avaliação?<span class="faq-icon">+</span></button>
+        <div class="faq-ans">A avaliação é realizada pela própria Dra. Bárbara — sem compromisso e sem custo. Ela analisa sua indicação, apresenta o protocolo adequado e responde todas as dúvidas para que você tome a decisão com segurança. Para agendar, envie uma mensagem pelo WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">O procedimento é realizado por médica?<span class="faq-icon">+</span></button>
+        <div class="faq-ans">Sim — todos os procedimentos são realizados pela própria Dra. Bárbara Pimenta, Dermatologista CRM/SC 27312, formada pela UNESP Botucatu com Título de Especialista pela SBD. Nenhum procedimento é delegado a auxiliares ou técnicos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. AUTORIDADE -->
+<section class="sec" style="background:var(--bg);">
+  <div class="wrap">
+    <div class="auth-grid">
+      <div class="auth-photo r">
+        <img src="../dra-barbara-pimenta/DM_20260511180826_001.jpg" alt="Dra. Bárbara Pimenta" onerror="this.src='../dra-barbara-pimenta/DM_20260511180812_001.jpg'">
+      </div>
+      <div>
+        <div class="lbl r">A especialista</div>
+        <h2 class="sec-h r">Dra. Bárbara<br><em>Pimenta</em></h2>
+        <p class="sec-p r" style="margin-bottom:0">Dermatologista com formação pela UNESP Botucatu e Título de Especialista pela Sociedade Brasileira de Dermatologia. Especializada em Dermatologia Clínica, Cirúrgica e Estética.</p>
+        <div class="cred-list r">
+          <div class="cred-row"><div class="cred-dot"></div><div class="cred-txt"><strong>Graduação e Residência em Dermatologia</strong> — UNESP, Faculdade de Medicina de Botucatu</div></div>
+          <div class="cred-row"><div class="cred-dot"></div><div class="cred-txt"><strong>Título de Especialista</strong> — Sociedade Brasileira de Dermatologia (SBD)</div></div>
+          <div class="cred-row"><div class="cred-dot"></div><div class="cred-txt"><strong>Pós-Graduação em Dermatologia Integrativa</strong> em curso · atualização contínua em tecnologias estéticas</div></div>
+          <div class="cred-row"><div class="cred-dot"></div><div class="cred-txt"><strong>CRM/SC 27312 · RQE 17648</strong> — Registro ativo no CRM de Santa Catarina</div></div>
+        </div>
+        <a class="btn-wpp r" href="https://wa.me/554896739186?text=Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20de%20Ultraformer%20MPT%20com%20a%20Dra.%20B%C3%A1rbara" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-11309171134/JgAZCM-v9dYYEL6D0ZAq'})">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com a Dra. Bárbara
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CTA FINAL -->
+<section class="sec" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="cta-wrap">
+      <div class="cta-card r">
+        <div class="lbl">Próximo passo</div>
+        <div class="cta-h">Agende sua avaliação<br><em>gratuita</em></div>
+        <p class="cta-p">A Dra. Bárbara avalia seu caso pessoalmente, apresenta o protocolo indicado e responde todas as suas dúvidas — sem compromisso e sem custo.</p>
+        <div class="cta-tags">
+          <span class="cta-tag">✓ Avaliação gratuita</span>
+          <span class="cta-tag">✓ Protocolo individualizado</span>
+          <span class="cta-tag">✓ Realizado por Dermatologista</span>
+          <span class="cta-tag">✓ Sem afastamento</span>
+          <span class="cta-tag">✓ Anvisa</span>
+        </div>
+        <a class="btn-cta" href="https://wa.me/554896739186?text=Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20de%20Ultraformer%20MPT%20com%20a%20Dra.%20B%C3%A1rbara" target="_blank" rel="noopener" onclick="gtag('event','conversion',{'send_to':'AW-11309171134/JgAZCM-v9dYYEL6D0ZAq'})">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agendar avaliação gratuita
+        </a>
+        <div class="cta-sub">
+          <span>✓ Sem compromisso</span>
+          <span>✓ Resposta em até 1h</span>
+          <span>✓ Seg–Sex · 8h às 18h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="address">
+  <div class="addr-inner">
+    <div><div class="addr-lbl">Localização</div><div class="addr-val">Estação Milano, Sala 1202 · Rua Ângelo Laporta 53 · Florianópolis</div></div>
+    <div><div class="addr-lbl">Atendimento</div><div class="addr-val">Segunda a Sexta · 8h às 18h</div></div>
+    <a class="maps-link" href="https://maps.google.com/?q=Rua+Angelo+La+Porta+53+Florianopolis" target="_blank" rel="noopener">Ver no Google Maps →</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 · Dra. Bárbara Pimenta · CRM/SC 27312 · RQE 17648 ·
+  <a href="https://www.instagram.com/drapimentadermato/" target="_blank" rel="noopener">@drapimentadermato</a> &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/@drapimentadermato" target="_blank" rel="noopener">YouTube</a>
+</footer>
+
+<script>
+function toggleFaq(btn){btn.parentElement.classList.toggle('open');}
+const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('v'),i*80);});},{threshold:0.1});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+</script>
 </body>
 </html>
